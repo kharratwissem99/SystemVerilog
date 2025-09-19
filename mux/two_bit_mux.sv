@@ -1,4 +1,4 @@
-module 2b_mux
+module two_bit_mux
     (
         input logic[0:1] a , b ,
         input logic sel,
