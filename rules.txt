@@ -1,0 +1,55 @@
+assign testa3melha ki tabda bech ta3mel = kima
+assign e = c | d
+
+generate block chouf page 12 bech ta3mel instanzierung mta3 barcha instanzen
+
+9balha(9bal page 12) 3arref operatoren anwe3 w achkel
+
+====================================
+always_comb begin
+end
+It can be thought of as continuously looping and executing the internal statements whenever any of
+the input signals change. The always_comb block is similar to a multi-line version of the continuous
+assign statement
+example:
+module add_or_sub
+#( parameter N = 4)
+(
+input logic [N -1:0] x , y ,
+input logic add ,
+output logic [N -1:0] z ;
+) ;
+always_comb
+if ( add )
+z = x + y ;
+else
+z = x - y ;
+endmodule
+
+Whenever x or y changes, the always_comb block is re-evaluated and a new value is assigned to z. In
+this simple case we could also use a single continuous assign statement to achieve the same effect.
+
+Important 3allekher:
+fel Example lfou9 ken enna7iw else block tsir mochkla. khater ken add twalli low yelzem z tab9a tetfaker l valeur elli kenet 3andha
+ama fel combinatorische block ma3anech internal memory ==> donc yetsama fama latch. khater l etat ma3adch defini. ama fama
+far9 m3a definition fel vhdl. lenna may7ottouch sensitivity list.
+
+fama zeda lblocking statements ma3andek l7a9 testa3melhom ken fel always_comb wala initial
+
+fama zeda unique case block kima l case ama hawka ta3ti guarantee lil compiler elli sel bech tkoun wa7da mel 3
+
+fama zeda case inside testa3mel wildcards
+====================================
+
+for sequencial cercuits:
+use the always block:
+always @ (... sensitivity list ...) begin [: optional name ]
+[ optional local variable declaration ];
+... procedural statement ...;
+end
+
+always @ (a , b ) begin
+sum = a + b ;
+end
+
+always block without sensitivity list will continuously execute  as an infinite loop
