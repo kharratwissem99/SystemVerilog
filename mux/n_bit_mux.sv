@@ -1,7 +1,7 @@
 module n_bit_mux
     (
         input logic a , b , c , d,
-        input logic sel[1:0],
+        input logic [1:0] sel,
         output logic f
     ) ;
 
