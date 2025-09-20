@@ -18,7 +18,7 @@ module universal_bin_cnt_tb;
   );
 
   always #5 clk = ~clk;
-  always #500 rst = ~rst; 
+  always #150 rst = ~rst; 
 
   // Stimulus
   initial begin
@@ -31,10 +31,12 @@ module universal_bin_cnt_tb;
               $time, clk, rst, load, up, en, d, q);
 
     // Change inputs over time
-    #1 rst = 0;
+    #10 rst = 0;
     // let the counter count up
 
-    #50 load = 1; up = 0; en = 1; d = 'd20; // load 20 and let him count down
+    #50 load = 1; d = 'd20; up = 0;
+    #5 load = 0;
+    #50 en = 1; d = 'd20; // load 20 and let him count down
 
     #50 load = 0; up = 0; en = 0; d = 'd20; // pause
 

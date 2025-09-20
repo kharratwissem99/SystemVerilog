@@ -32,10 +32,10 @@ module universal_bin_cnt
             else
                 if (en)
                     if (up)
-                        r_next = r_next + 1;
+                        r_next = r_reg + 1;
                         // we should consider the overflow case
                     else
-                        r_next = r_next - 1;
+                        r_next = r_reg - 1;
                 else
                     r_next = r_reg;
 
